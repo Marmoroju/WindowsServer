@@ -113,4 +113,11 @@ link: https://www.jenkins.io/doc/book/installing/windows/
     - acesse http://localhost:8080/
     - Siga as instruções de configuração inicial para alterar senha e instalar os plugins
 
+# Habilitar Jenkins para acesso Externo
+
+- Abrir o Gerenciamento do Firewall
+- Inbound Rules / Regras de Entrada
+- Nova Regra
+- Criar regra para porta 8080
+
 
