@@ -1,19 +1,16 @@
 ## Links das Documentações 
 
 Para provisionar o "Provider" do VirtualBox:
-- link: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-modifyvm.html
+- Link: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-modifyvm.html
 
 Para provisionar VM Windows com Vagrantfile:
-- link: https://developer.hashicorp.com/vagrant/docs/vagrantfile/winrm_settings
+- Link: https://developer.hashicorp.com/vagrant/docs/vagrantfile/winrm_settings
 
 Para alterar o espaço em disco após a VM ser criada:
-- link: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-modifymedium.html
+- Link: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-modifymedium.html
 
 Para instalação e configuração do Jenkins:
-- link: https://www.jenkins.io/doc/book/installing/windows/
-
-Para instalar e configurar IIS:
-- Link: https://www.youtube.com/watch?v=gK_bLdu-AzI
+- Link: https://www.jenkins.io/doc/book/installing/windows/
 
 Para Download do JDK versão 11:
 - Link: https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jdk&version=11
@@ -21,8 +18,42 @@ Para Download do JDK versão 11:
 Para Download do Jenkins versão LTS Windows:
 - Link: https://www.jenkins.io/download/
 
+Para instalar e configurar IIS:
+- Link: https://www.youtube.com/watch?v=gK_bLdu-AzI
+
 Para Download do Git:
-- link: https://git-scm.com/downloads
+- Link: https://git-scm.com/downloads
+
+Para Download do SonarQube
+- Link: https://www.sonarsource.com/products/sonarqube/downloads/
+
+Para Download do SonarScanner
+- Link: https://docs.sonarsource.com/sonarqube/9.9/analyzing-source-code/scanners/sonarscanner/
+
+## Criar do zero uma Box do windows
+1. Baixar a ISO do Windows
+2. Criar VM e instalar a ISO
+3. Alterar nome da VM para VagrantPC ou Vagrant
+4. Criar usuario e senha vagrant
+5. No terminal, navegue até o diretório onde a máquina virtual foi criada.
+6. Opcional: Instalar WinRm e Atualizar o PowerShell para futura configuração do Ansible
+
+7. Execute o seguinte comando para criar a Box do Vagrant:
+- Precisa estar com a VM desligada. Caso contrário o comando irá forçar o desligamento.
+- `vagrant package --base nome_da_sua_vm_no_virtualbox`
+- Isso criará um arquivo package.box no diretório atual.
+- Ex.: `vagrant package --base Vagrant`
+- A exportação da VM é um pouco demorada (Depndendo da configuração do PC).
+- Logo após exportar, será realizada a compressão do arquivo que levará um tempo também.
+- O Arquivo final terá em média 5GB a 6GB mais ou menos.
+
+8. Adicione a box à sua biblioteca do Vagrant:
+- Execute o seguinte comando para adicionar a “box” à sua biblioteca do Vagrant:
+- `vagrant box add windowsserver2019 package.box`
+- Isso adicionará a box do Windows 10 à sua biblioteca LOCAL do Vagrant com o nome windowsserver2019.
+
+9. Crie um Vagrantfile para iniciar a máquina virtual:
+- `vagrant init windowsserver2019`
 
 ## Etapas de Configuração e Instalação Manual do Jenkins
 
@@ -49,17 +80,15 @@ Para Download do Git:
                     - C:\tools\jdk-11.0.24.8-hotspot\bin
                     - %JAVA_HOME%\bin
 
-- Abra o terminal para conferir o retorno das variáveis
+- Copie e cole no terminal para conferir o retorno das variáveis
 ```bash
     java -version
 ```
-
-- digite: 
+ 
 ```bash
     echo %JAVA_VERSION%
 ```
 
-- digite: 
 ```bash
     echo %PATH%
 ```
@@ -94,7 +123,7 @@ Para Download do Git:
             - env name="JENKINS_HOME" value="C:\data\jenkins_home"/
 
             - Substituir na linha 39 (executable)
-            - C:\tools\jdk-11.0.24.8-hotspot\\bin\java.exe
+            - C:\tools\jdk-11.0.24.8-hotspot\bin\java.exe
             - %JAVA_HOME%\bin\java.exe
 
             - Substituir na linha 40 (arguments)
@@ -179,6 +208,9 @@ Para Download do Git:
             - Mostra o local padrão em "Physical Path"
         - Default Document > Mostra o tipo de arquivo padrão index aceito pelo web-service exposto
     - Diretório padrão > C:\inetpub\wwwroot
+
+## Instalação e Configuração do SonarQube e SonarScanner    
+
     
 
 
