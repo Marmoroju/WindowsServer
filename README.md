@@ -30,6 +30,9 @@ Para Download do SonarQube
 Para Download do SonarScanner
 - Link: https://docs.sonarsource.com/sonarqube/9.9/analyzing-source-code/scanners/sonarscanner/
 
+Para Pipeline com Powershell
+- Link: https://www.jenkins.io/blog/2017/07/26/powershell-pipeline/
+
 ## Criar do zero uma Box do windows
 1. Baixar a ISO do Windows
 2. Criar VM e instalar a ISO
@@ -156,7 +159,7 @@ Para Download do SonarScanner
 - Editor padrão deve ser alterado para Notepad++
 - Após alterar o local e editor, basta seguir com "next, next"
 
-### Configurar no Jenkins o Git e JDK
+### Configurar no Jenkins o GIT, JDK e POWERSHELL
 
 - Abra o Jenkins navegador
 
@@ -184,6 +187,12 @@ Para Download do SonarScanner
 
 5. Os arquivos utilizados nas builds dos pipelines serão armazenadas neste diretório:
     - C:\data\jenkins_home\workspace\
+
+6. Habilitar PowerShell
+    - Gerenciar Jenkins
+    - Plugins
+    - Extensões Disponíveis
+    - Pesquisar por PowerShell
 
 ## Instalação e Configuração do IIS
 

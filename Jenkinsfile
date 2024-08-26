@@ -2,11 +2,14 @@
 pipeline {
     agent any
         stages  {
-            stage ('build') {
+            stages {
+            stage ('Atualizacao do Site') {
                 steps {
-                    git 'https://github.com/Marmoroju/app.git'
+                    // As barras devem ser alteradas para ficarem dessa forma
+                    powershell 'copy C:/data/jenkins_home/workspace/jenkins_file/* C:/inetpub/wwwroot/app/'
                 }
             }
+
         }
 } 
 
