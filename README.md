@@ -1,28 +1,33 @@
-## Configuração geral do "Provider" do VirtualBox
+## Links das Documentações 
 
+Para provisionar o "Provider" do VirtualBox:
 link: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-modifyvm.html
 
-## Configuração de VM Windows com Vagrantfile
-
+Para provisionar VM Windows com Vagrantfile:
 link: https://developer.hashicorp.com/vagrant/docs/vagrantfile/winrm_settings
 
-Como configurar o usuário de acesso do Vagrant
-Vagrant.configure("2") do |config|
-config.vm.communicator = "winrm"
-config.winrm.username = "vagrant"
-config.winrm.password = "vagrant"
-
-Alterar o espaço em disco após a VM ser criada
+Para alterar o espaço em disco após a VM ser criada:
 link: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-modifymedium.html
 
-## Configuração e Instalação manual do Jenkins
-
+Para instalação e configuração do Jenkins:
 link: https://www.jenkins.io/doc/book/installing/windows/
 
-## Instalação do Java JDK
-- Download do JDK versão 11
-    - https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jdk&version=11
-    - Essa instalação não será no padrão windows com "next, next, next"
+Para instalar e configurar IIS:
+Link: https://www.youtube.com/watch?v=gK_bLdu-AzI
+
+Para Download do JDK versão 11:
+Link: https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jdk&version=11
+
+Para Download do Jenkins versão LTS Windows:
+Link: https://www.jenkins.io/download/
+
+Para Download do Git:
+link: https://git-scm.com/downloads
+
+## Etapas de Configuração e Instalação Manual do Jenkins
+
+### Instalação do Java JDK
+ - Essa instalação não será no padrão windows com "next, next, next"
     
     - Inicie o arquivo JDK 
         - Siga até "Custom Setup" par alterar o local e variável de ambiente
@@ -44,7 +49,7 @@ link: https://www.jenkins.io/doc/book/installing/windows/
                     - C:\tools\jdk-11.0.24.8-hotspot\bin
                     - %JAVA_HOME%\bin
 
-- Abra o terminal para conferir se as variáveis tiveram retorno
+- Abra o terminal para conferir o retorno das variáveis
 ```bash
     java -version
 ```
@@ -66,12 +71,9 @@ link: https://www.jenkins.io/doc/book/installing/windows/
         - Add User or Group
         - administrator
             - Check Names
-            - Aplly                              
+            - Apply                              
 ### Instalação do Jenkins
-- Download do Jenkins versão LTS Windows
-    - https://www.jenkins.io/download/
-    
-    - Será instalado no C:\tools\Jenkins\
+- Será instalado no C:\tools\Jenkins\
     - Run service as local or domain user:
         - Adicionar usuário e senha
         - Porta Padrão 8080
@@ -121,8 +123,6 @@ link: https://www.jenkins.io/doc/book/installing/windows/
 
 ### Instalação do Git
 
-link: https://git-scm.com/downloads
-
 - Pode ser instalado em C:\tools\Git
 - Editor padrão deve ser alterado para Notepad++
 - Após alterar o local e editor, basta seguir com "next, next"
@@ -139,11 +139,11 @@ link: https://git-scm.com/downloads
     - Path to Git Executable (Adicione o caminho completo do bin onde foi instalado o git)
     - C:\tools\Git\bin\git.exe
 
-- Acesse a pasta do Git
+2. Acesse a pasta do Git
     - Dê permissão ao usuário que foi configurado para o Jenkins em sua instalação
     - Neste caso, vagrant
 
-2. Configuração do JDK  
+3. Configuração do JDK  
 - Acesse: 
     - Gerenciar Jenkins
     - Tools
@@ -151,11 +151,37 @@ link: https://git-scm.com/downloads
     - Nome > JAVA_HOME
     - JAVA_HOME > C:\tools\jdk-11.0.24.8-hotspot\   (Local de instalação do JDK)
 
-3. Aplicar e Salvar
+4. Aplicar e Salvar
 
-### Configuração do Pipeline
+5. Os arquivos utilizados nas builds dos pipelines serão armazenadas neste diretório:
+    - C:\data\jenkins_home\workspace\
 
-Os arquivos utilizados nas builds dos pipelines serão armazenadas neste diretório C:\data\jenkins_home\workspace\
+## Instalação e Configuração do IIS
+
+1. Acesse o Server Manager
+    - Add roles and features
+    - Installation Type > Role-Based...
+    - Server Selection > ...server pool
+    - Server Roles > Web Server (IIS) > Add features
+    - Features > Click Next
+    - Web Server Role (IIS) > Click Next
+        - Role Services > Click Next
+    - Confirmation > Install
+    - Acesse o IP do servidor para conferir
+
+2. Configurar o Local Padrão do Site
+    - Acesse o Server Manager
+    - Tools (Menu superior direito)
+    - Internet Information Services (IIS) Manager
+    - Start Page > Nome_Local > Sites
+    - Default Web Site
+        - Propriedades > Manage Website > Advanced Settings
+            - Mostra o local padrão em "Physical Path"
+        - Default Document > Mostra o tipo de arquivo padrão index aceito pelo web-service exposto
+    - Diretório padrão > C:\inetpub\wwwroot
+    
+
+
 
 
 
