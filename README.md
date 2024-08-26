@@ -19,13 +19,13 @@ link: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-m
 
 link: https://www.jenkins.io/doc/book/installing/windows/
 
-1. Instalação do Java JDK
+### Instalação do Java JDK
     - Download do JDK versão 11
         - https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jdk&version=11
     - Essa instalação não será no padrão windows com "next, next, next"
     
     - Inicie o arquivo JDK 
-        - Siga até "Custo Setup" par alterar o local e variável de ambiente
+        - Siga até "Custom Setup" par alterar o local e variável de ambiente
             - Opção "Set or override JAVA_HOME variable" 
             - "Will be installed on local hard drive"
             - clicar em "JDK with Hostspot" e "Brownse"
@@ -59,7 +59,7 @@ link: https://www.jenkins.io/doc/book/installing/windows/
     echo %PATH%
 ```
 
-2. Local Security Policy (Necessário para permissões do Jenkins)
+### Local Security Policy (Necessário para permissões do Jenkins)
     - Local Policies
     - User Rights Assignment
     - Log on as a services
@@ -67,8 +67,7 @@ link: https://www.jenkins.io/doc/book/installing/windows/
         - administrator
             - Check Names
             - Aplly                              
-
-3. Instalação do Jenkins
+### Instalação do Jenkins
     - Download do Jenkins versão LTS Windows
         - https://www.jenkins.io/download/
     
@@ -113,11 +112,52 @@ link: https://www.jenkins.io/doc/book/installing/windows/
     - acesse http://localhost:8080/
     - Siga as instruções de configuração inicial para alterar senha e instalar os plugins
 
-# Habilitar Jenkins para acesso Externo
+### Habilitar Jenkins para acesso Externo
 
 - Abrir o Gerenciamento do Firewall
 - Inbound Rules / Regras de Entrada
 - Nova Regra
 - Criar regra para porta 8080
+
+### Instalação do Git
+
+link: https://git-scm.com/downloads
+
+- Pode ser instalado em C:\tools\Git
+- Editor padrão deve ser alterado para Notepad++
+- Após alterar o local e editor, basta seguir com "next, next"
+
+### Configurar no Jenkins o Git e JDK
+
+- Abra o Jenkins navegador
+
+1. Configuração do Git 
+- Acesse: 
+    - Gerenciar Jenkins
+    - Tools
+    - Git Installations
+    - Path to Git Executable (Adicione o caminho completo do bin onde foi instalado o git)
+    - C:\tools\Git\bin\git.exe
+
+- Acesse a pasta do Git
+    - Dê permissão ao usuário que foi configurado para o Jenkins em sua instalação
+    - Neste caso, vagrant
+
+2. Configuração do JDK  
+- Acesse: 
+    - Gerenciar Jenkins
+    - Tools
+    - JDK instalações
+    - Nome > JAVA_HOME
+    - JAVA_HOME > C:\tools\jdk-11.0.24.8-hotspot\   (Local de instalação do JDK)
+
+3. Aplicar e Salvar
+
+### Configuração do Pipeline
+
+Os arquivos utilizados nas builds dos pipelines serão armazenadas neste diretório C:\data\jenkins_home\workspace\
+
+
+
 
 
