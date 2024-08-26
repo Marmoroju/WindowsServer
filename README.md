@@ -19,9 +19,9 @@ link: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-m
 
 link: https://www.jenkins.io/doc/book/installing/windows/
 
-### Instalação do Java JDK
-    - Download do JDK versão 11
-        - https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jdk&version=11
+## Instalação do Java JDK
+- Download do JDK versão 11
+    - https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jdk&version=11
     - Essa instalação não será no padrão windows com "next, next, next"
     
     - Inicie o arquivo JDK 
@@ -60,7 +60,7 @@ link: https://www.jenkins.io/doc/book/installing/windows/
 ```
 
 ### Local Security Policy (Necessário para permissões do Jenkins)
-    - Local Policies
+- Local Policies
     - User Rights Assignment
     - Log on as a services
         - Add User or Group
@@ -68,8 +68,8 @@ link: https://www.jenkins.io/doc/book/installing/windows/
             - Check Names
             - Aplly                              
 ### Instalação do Jenkins
-    - Download do Jenkins versão LTS Windows
-        - https://www.jenkins.io/download/
+- Download do Jenkins versão LTS Windows
+    - https://www.jenkins.io/download/
     
     - Será instalado no C:\tools\Jenkins\
     - Run service as local or domain user:
