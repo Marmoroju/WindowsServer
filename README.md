@@ -1,28 +1,28 @@
 ## Links das Documentações 
 
 Para provisionar o "Provider" do VirtualBox:
-link: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-modifyvm.html
+- link: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-modifyvm.html
 
 Para provisionar VM Windows com Vagrantfile:
-link: https://developer.hashicorp.com/vagrant/docs/vagrantfile/winrm_settings
+- link: https://developer.hashicorp.com/vagrant/docs/vagrantfile/winrm_settings
 
 Para alterar o espaço em disco após a VM ser criada:
-link: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-modifymedium.html
+- link: https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-modifymedium.html
 
 Para instalação e configuração do Jenkins:
-link: https://www.jenkins.io/doc/book/installing/windows/
+- link: https://www.jenkins.io/doc/book/installing/windows/
 
 Para instalar e configurar IIS:
-Link: https://www.youtube.com/watch?v=gK_bLdu-AzI
+- Link: https://www.youtube.com/watch?v=gK_bLdu-AzI
 
 Para Download do JDK versão 11:
-Link: https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jdk&version=11
+- Link: https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jdk&version=11
 
 Para Download do Jenkins versão LTS Windows:
-Link: https://www.jenkins.io/download/
+- Link: https://www.jenkins.io/download/
 
 Para Download do Git:
-link: https://git-scm.com/downloads
+- link: https://git-scm.com/downloads
 
 ## Etapas de Configuração e Instalação Manual do Jenkins
 
