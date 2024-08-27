@@ -1,5 +1,6 @@
 Vagrant.configure("2") do |config|
     config.vm.boot_timeout = 60
+    config.vm.communicator = "winrm"
     config.vm.define "Windows" do |vm_windows|
         vm_windows.vm.box = "StefanScherer/windows_2019"
         vm_windows.vm.hostname = "windowsserver2019"
