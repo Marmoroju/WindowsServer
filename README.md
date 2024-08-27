@@ -12,8 +12,8 @@ Para alterar o espaço em disco após a VM ser criada:
 Para instalação e configuração do Jenkins:
 - Link: https://www.jenkins.io/doc/book/installing/windows/
 
-Para Download do JDK versão 11:
-- Link: https://adoptium.net/temurin/releases/?os=windows&arch=x64&package=jdk&version=11
+Para Download do JDK versão 17 LTS:
+- Link: https://adoptium.net/temurin/releases/?os=windows&version=17
 
 Para Download do Jenkins versão LTS Windows:
 - Link: https://www.jenkins.io/download/
@@ -76,8 +76,8 @@ Para Pipeline com Powershell
             - Configurações Avançadas do Sistema
             - Avançado > Variáveis de Ambiente 
                 - Localize o JAVA_HOME
-                - Edite o "valor" para C:\tools\jdk-11.0.24.8-hotspot 
-                    - precisa deixar sem a última barra
+                - Edite o "valor" para C:\tools\jdk-11.0.24.8-hotspot\ 
+                   
                 - Ainda em JAVA_HOME
                     - Altere o "Path"    
                     - C:\tools\jdk-11.0.24.8-hotspot\bin
@@ -219,6 +219,21 @@ Para Pipeline com Powershell
     - Diretório padrão > C:\inetpub\wwwroot
 
 ## Instalação e Configuração do SonarQube e SonarScanner    
+
+1. Fazer o download do Sonarqube Community
+    - Extrair e instalar na pasta:
+        - C:\tools\sonarqube-10.6.0.92116
+    - Acessar pelo Terminal:
+        - C:\tools\sonarqube-10.6.0.92116\bin\windows-x86-64
+        - Executar o arquivo StartSonar.bat
+    - Acessar no navegdor http://localhost:9000/
+
+2. Habilitar Sonarqube para acesso Externo
+
+- Abrir o Gerenciamento do Firewall
+- Inbound Rules / Regras de Entrada
+- Nova Regra
+- Criar regra para porta 9000   
 
     
 
