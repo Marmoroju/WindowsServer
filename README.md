@@ -188,7 +188,7 @@ Para Pipeline com Powershell
 5. Os arquivos utilizados nas builds dos pipelines serão armazenadas neste diretório:
     - C:\data\jenkins_home\workspace\
 
-6. Habilitar PowerShell
+6. Instalar PowerShell
     - Gerenciar Jenkins
     - Plugins
     - Extensões Disponíveis
@@ -221,14 +221,35 @@ Para Pipeline com Powershell
 ## Instalação e Configuração do SonarQube e SonarScanner    
 
 1. Fazer o download do Sonarqube Community
-    - Extrair e instalar na pasta:
+    - Extrair, copiar e colar na pasta:
         - C:\tools\sonarqube-10.6.0.92116
     - Acessar pelo Terminal:
         - C:\tools\sonarqube-10.6.0.92116\bin\windows-x86-64
         - Executar o arquivo StartSonar.bat
     - Acessar no navegdor http://localhost:9000/
 
-2. Habilitar Sonarqube para acesso Externo
+2. Instalar o SonarService
+    - Acessar pelo Terminal como Administrador:
+        - C:\tools\sonarqube-10.6.0.92116\bin\windows-x86-64
+        - Executar o arquivo SonarService.bat
+        - SonarService.bat install
+    - Acesse Gerenciador de Serviços
+        - Abra os Seriços
+        - Inicie o Processo do SonarQube
+
+2. Fazer o download do SonarScanner
+    - Extrair, copiar e colar na pasta:
+        - C:\tools\sonar-scanner
+
+3. Instalar SonarScanner no Jenkins
+    - Abrir o Jenkins no navegador
+    - Gerenciar Jenkins
+    - Plugins
+    - Extensões Disponíveis
+    - Pesquisar por SonarQube Scanner  
+    - Foi adidionado -Dhudson.model.UpdateCenter.pluginDownloadReadTimeoutSeconds=120 ao arquivo jenkins.xml, em "arguments" para poder instalar o scanner.
+
+5. Habilitar Sonarqube para acesso Externo
 
 - Abrir o Gerenciamento do Firewall
 - Inbound Rules / Regras de Entrada
