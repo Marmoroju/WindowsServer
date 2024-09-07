@@ -256,7 +256,7 @@ Para Pipeline com Powershell
 - Nova Regra
 - Criar regra para porta 9000   
 
-## Utilização local do SonarScanner
+## Utilização local do SonarScanner e configuração do sonar-scanner.properties
 
 Antes de disparar o sonnar-scanner precisará ser realizada algumas configurações:
 
@@ -297,9 +297,18 @@ sonar.password=seu_password
     - Project Settings
     - Permissions
 
-3. Para facilidar, pode ser criado um arquivo .bat na pasta bin do sonar-scanner com o mesmo código gerado no Sonarqube, basta alterar o `-D"sonar.sources=."` com o caminho em que o seu código está, neste caso, está apontando para o workspace do Jenkins. Lembrando sempre de alterar a \ para /.
+3. Para facilitar, pode ser criado um arquivo .bat na pasta bin do sonar-scanner com o mesmo código gerado no Sonarqube, basta alterar o `-D"sonar.sources=."` com o caminho em que o seu código está, neste caso, está apontando para o workspace do Jenkins. Lembrando sempre de alterar a \ para /.
+
+4. Além do código gerado pelo projeto do SonarQube, deve ser adicionado um parâmetro após o sonar.sources, que é o `-D"sonar.projectBaseDir=C:/data/jenkins_home/workspace/jenkins_file/"`, pois o Sonar-Scanner trabalha com outro diretório padrão, por isso deve ser passado o diretório de onde será analisado o código.
+
+Por exemplo:
+Inicialmente será gerado esse código como esse no projeto:
 ```bash
-sonar-scanner.bat -X -D"sonar.projectKey=app" -D"sonar.sources=C:/data/jenkins_home/workspace/jenkins_file/" -D"sonar.host.url=http://localhost:9000" -D"sonar.token=SEU_TOKEN"
+sonar-scanner.bat -D"sonar.projectKey=app" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=SEU_TOKEN"
+```
+Depois ele deverá ser adaptado dessa forma para poder criar o arquivo bat, por exemplo.
+```bash
+sonar-scanner.bat -D"sonar.projectKey=app" -D"sonar.sources=C:/data/jenkins_home/workspace/jenkins_file/" -D"sonar.projectBaseDir=C:/data/jenkins_home/workspace/jenkins_file/" -D"sonar.host.url=http://localhost:9000" -D"sonar.token=SEU_TOKEN"
 ```
 
 4. Adicionar em Path nas váriáveis de ambiente, o caminho do bin de onde foi instalado o sonnar-scanner: `C:\Local_de_instalação\sonar-scanner\bin`
