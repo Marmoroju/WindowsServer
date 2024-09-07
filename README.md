@@ -301,8 +301,7 @@ sonar.password=seu_password
 
 4. Além do código gerado pelo projeto do SonarQube, deve ser adicionado um parâmetro após o sonar.sources, que é o `-D"sonar.projectBaseDir=C:/data/jenkins_home/workspace/jenkins_file/"`, pois o Sonar-Scanner trabalha com outro diretório padrão, por isso deve ser passado o diretório de onde será analisado o código.
 
-Por exemplo:
-Inicialmente será gerado esse código como esse no projeto:
+Por exemplo, inicialmente no projeto será gerado um código como esse:
 ```bash
 sonar-scanner.bat -D"sonar.projectKey=app" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=SEU_TOKEN"
 ```
