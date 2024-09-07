@@ -256,6 +256,55 @@ Para Pipeline com Powershell
 - Nova Regra
 - Criar regra para porta 9000   
 
+## Utilização local do SonarScanner
+
+Antes de disparar o sonna-scanner precisará ser realizada algumas configurações:
+
+1. sonar-scanner.properties.
+`C:\Local_da_Instalação\sonar-scanner\conf`
+
+Arquivo Original:
+```bash
+# Configure here general information about the environment, such as the server connection details for example
+# No information about specific project should appear here
+
+#----- SonarQube server URL (default to SonarCloud)
+#sonar.host.url=https://mycompany.com/sonarqube
+
+#sonar.scanner.proxyHost=myproxy.mycompany.com
+#sonar.scanner.proxyPort=8002
+```
+
+Adicionar ao final as configurações do servidor (Senha e Login podem ser passadas como variaveis de ambiente):
+```bash
+# Configure here general information about the environment, such as the server connection details for example
+# No information about specific project should appear here
+
+#----- SonarQube server URL (default to SonarCloud)
+#sonar.host.url=https://mycompany.com/sonarqube
+
+#sonar.scanner.proxyHost=myproxy.mycompany.com
+#sonar.scanner.proxyPort=8002
+
+#Default SonarQube server
+sonar.host.url=http://192.168.1.12:9000/
+sonar.login=seu_login
+sonar.password=seu_password
+```
+
+2. Permissões no projeto no SonarQube
+- Criar e acessar o projeto
+    - Project Settings
+    - Permissions
+
+3. Para facilidar, pode ser criado um arquivo .bat na pasta bin do sonar-scanner com o mesmo código gerado no Sonarqube, basta alterar o `-D"sonar.sources=."` com o caminho em que o seu código está, neste caso, está apontando para o workspace do Jenkins. Lembrando sempre de alterar a "\" para "/".
+```bash
+sonar-scanner.bat -X -D"sonar.projectKey=app" -D"sonar.sources=C:/data/jenkins_home/workspace/jenkins_file/" -D"sonar.host.url=http://192.168.1.12:9000" -D"sonar.token=sqp_827f647c606472030b952dda41b29a92fd4fa170"
+```
+
+4. Adicionar em Path nas váriáveis de ambiente, o caminho do bin de onde foi instalado o sonnar-scanner: `C:\Local_de_instalação\sonar-scanner\bin`
+
+
     
 
 
