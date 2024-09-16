@@ -30,6 +30,12 @@ Para Download do SonarQube
 Para Download do SonarScanner
 - Link: https://docs.sonarsource.com/sonarqube/9.9/analyzing-source-code/scanners/sonarscanner/
 
+Para Documentação do Sonarlint
+- Link: https://docs.sonarsource.com/sonarlint/vs-code/
+
+Para Instalação do Sonarlint no VCcode
+- Link: https://www.youtube.com/watch?v=m8sAdYCIWhY&ab_channel=Sonar
+
 Para Pipeline com Powershell
 - Link: https://www.jenkins.io/blog/2017/07/26/powershell-pipeline/
 
@@ -312,8 +318,24 @@ sonar-scanner.bat -D"sonar.projectKey=app" -D"sonar.sources=C:/data/jenkins_home
 
 4. Adicionar em Path nas váriáveis de ambiente, o caminho do bin de onde foi instalado o sonnar-scanner: `C:\Local_de_instalação\sonar-scanner\bin`
 
-
+### Sonarlint - Extensão VScode
     
+1. Nas extensões, procurar por Sonarlint e instalar
+
+2. Adicionar ao Sonarqube e configurar com o QualityGate do projeto
+ - Na barra lateral aparecerá um ícone com a logo do Sonarlint
+ - Clique nele e depois em "Add SonarQube Connection" 
+ - irá pedir a URL 
+ - Gerar Token
+ - Abrirá o navegador solicitando a permissão
+ - Salve a Conexão.
+
+3. Connected Mode
+ - Crie o projeto no SonarQube 
+ - Crie o QualityGate
+ - Acesse o ícone do SonarLint
+ - Faça o bind da pasta do projeto no Sonarqube com a pasta do projeto local.
+
 
 
 

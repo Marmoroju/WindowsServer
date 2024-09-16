@@ -1,2 +1,4 @@
 .vagrant
 senhas.txt
+.sonarlint
+*.json
